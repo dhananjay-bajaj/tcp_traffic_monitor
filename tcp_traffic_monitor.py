@@ -1,5 +1,5 @@
 #Sniffs incoming TCP packet
-import socket, sys, struct
+import socket, sys, struct, time
 
 #create an INET, RAW socket
 try:
@@ -9,7 +9,7 @@ except socket.error as error:
 	print(error)
 	sys.exit()
 
-print("Source IP address | Source port number | Dest. port number | Packet number | Sequence No. | Acknowledgement No.")    #making the heading for packet information to be displayed
+print("   Time   | Source IP address | Source port number | Dest. port number | Packet number | Sequence No. | Acknowledgement No.")    #making the heading for packet information to be displayed
 
 reg=set()
 counter=dict()
@@ -49,4 +49,4 @@ while True:
         reg.add(str(s_addr))
         counter[str(s_addr)]=1
     
-    print("\n"+str(s_addr)+r'       '+'\t'+str(source_port)+r'              '+'\t'+str(dest_port)+r'        '+'\t'+str(counter[str(s_addr)])+r'       '+'\t'+str(sequence)+r'      '+str(acknowledgement))
+    print("\n"+'['+ time.strftime('%I') +':'+ time.strftime('%M:%S') + ']  ' +str(s_addr)+r'       '+'\t'+str(source_port)+r'              '+'\t'+str(dest_port)+r'         '+'\t'+str(counter[str(s_addr)])+r'        '+'\t'+str(sequence)+r'      '+str(acknowledgement))
