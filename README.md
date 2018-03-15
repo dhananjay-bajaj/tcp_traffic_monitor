@@ -4,6 +4,6 @@ author: dhananjay
 
 Tested on: debian based linux distro
 
-Description: This script doesn't take any arguments and gives 6 tuples in the output {Source ip address | source port number | destination port number | packet number(number of packets received from the particular host) | sequence number | acknowlodgement number}
+Description: This script doesn't take any arguments and gives 7 tuples in output, time, source IP-address, source port-number, destination port number, packet number(number of packets received from the particular host), sequence number, acknowlodgement number.
 
-Note: this script only works for TCP packet
+Note: This script only works for TCP packet
